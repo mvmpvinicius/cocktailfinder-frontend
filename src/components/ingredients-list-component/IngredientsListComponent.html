@@ -1,0 +1,24 @@
+<div class="component-ingredients-list">
+  <p
+    class="title"
+    v-if="ingredients"
+  >
+    Ingredients
+  </p>
+  <b-list-group>
+    <b-list-group-item v-for="(ingredient, index) in ingredients">
+      <div class="float-left">
+        <h4>
+          {{ ingredient[0].strIngredient }}
+        </h4>
+      </div>
+      <b-button
+        @click="searchForCocktails(ingredient[0].strIngredient)"
+        class="float-right"
+        variant="info"
+      >
+        Show Cocktails
+      </b-button>
+    </b-list-group-item>
+  </b-list-group>
+</div>

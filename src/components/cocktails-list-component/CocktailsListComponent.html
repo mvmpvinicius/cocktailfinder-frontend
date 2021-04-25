@@ -1,0 +1,25 @@
+<div class="component-cocktails-list">
+  <p v-if="cocktails">Cocktails with {{ ingredient }}</p>
+  <div class="row">
+    <div
+      :key="index"
+      class="col-12 col-sm-12 col-md-6 col-lg-6 mb-6"
+      v-for="(cocktail, index) in cocktails"
+    >
+    <b-card
+      :img-src="cocktail[0].strDrinkThumb"
+      :title="cocktail[0].strDrink"
+      class="mb-2"
+    >
+      <b-card-text>
+        {{ cocktail[0].strInstructions }}
+        <ul class="mt-3">
+          <li v-for="(ingredient) in buildUpIngredients(cocktail[0])">
+            {{ ingredient }}
+          </li>
+        </ul>
+      </b-card-text>
+    </b-card>
+    </div>
+  </div>
+</div>
