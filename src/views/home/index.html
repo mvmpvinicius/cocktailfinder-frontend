@@ -1,5 +1,49 @@
 <div class="container view-home">
-  <div class="row">
-    Home
-  </div>
+  <b-overlay
+    :show="loading"
+    rounder="sm"
+  >
+    <div class="row mt-5">
+      <div class="col-4 offset-4">
+        <b-input-group>
+          <b-form-input
+            placeholder="Search for ingredients"
+            v-model="ingredientsModel"
+          />
+          <b-input-group-append>
+            <b-button
+              @click="searchForIngredients"
+              variant="primary"
+            >
+              Search
+            </b-button>
+            <b-button
+              @click="clearResults"
+              variant="danger"
+            >
+              Clear
+            </b-button>
+          </b-input-group-append>
+        </b-input-group>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-6 offset-3">
+        <ingredients-list
+          :ingredients="ingredients"
+          @search-for-cocktails="searchForCocktails"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-8 offset-2">
+        <cocktails-list
+          :cocktails="cocktails"
+          :ingredient="selectedIngredient"
+        />
+      </div>
+    </div>
+  </b-overlay>
 </div>
