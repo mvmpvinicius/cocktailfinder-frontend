@@ -14,6 +14,7 @@ import IngredientsList from "@/components/ingredients-list-component/Ingredients
  * Services
  */
 import CocktailsService from "@/api/services/resources/cocktails.js";
+import IngredientsService from "@/api/services/resources/ingredients.js";
 
 export default {
   name: "HomeView",
@@ -60,7 +61,6 @@ export default {
       }
 
       const queryParams = {
-        "search-for": "cocktails",
         params: ingredient,
       };
 
@@ -95,13 +95,12 @@ export default {
       }
 
       const queryParams = {
-        "search-for": "ingredients",
         params: this.ingredientsModel,
       };
 
       this.loading = true;
 
-      CocktailsService.index(queryParams)
+      IngredientsService.index(queryParams)
         .then((response) => {
           if (!response[0]) {
             this.$bvToast.toast("No ingredients found", {
