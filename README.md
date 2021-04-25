@@ -20,5 +20,8 @@ npm run build
 npm run lint
 ```
 
+### Notes
+1 - Copy .env.sample file to a new .env file. This is where your config variables are.
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
